@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✈️ TourUP.com</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&display=swap">
+    <style>
+
+        page {
+            position: relative;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: white;
+            padding: 0 20px;
+            transition: background-color 0.5s;
+        }
+        h1 {
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            padding: 50px;
+            margin-top: 50px;
+        }
+        .navbar {
+            display: flex;
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(3px);
+            border-radius: 5px;
+            box-shadow: 0 5px 30px 0 rgba(22, 32, 220, 0.37);
+            padding-right: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: white;
+        }
+        ul {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+            margin: 0;
+            padding: 1rem;
+            justify-content: center;
+        }
+        ul li {
+            color: #000; 
+            display: grid;
+            place-content: center;
+            margin: 0;
+        }
+        .menu {
+            color: Black; 
+            padding: 0.5rem;
+            position: relative;
+            text-decoration: none;
+            font-family: 'Roboto', sans-serif;
+        }
+        .menu::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background:#ECE4DB; /* Fern */
+            border-radius: 5px;
+            transform: scaleX(0);
+            transition: all .5s ease;
+            bottom: 0;
+            left: 0;
+        }
+        .menu:hover::before {
+            transform: scaleX(1);
+        }
+        footer {
+            display: flex;
+            background: #a6876f; /* Fern */
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-family: 'Roboto', sans-serif;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .social-media {
+            display: flex;
+            justify-content: left;
+            gap: 20px;
+            margin: 10px 10px 10px 10px;
+            align:left;
+        }
+        .social-media a {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .social-media a:hover {
+            color: #ECE4DB; /* Warm Ivory */
+        }
+        .img-gallery {
+            width: 90%;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 30px;
+        }
+        .img-gallery div {
+            position: relative;
+            text-align: center;
+        }
+        .img-gallery img {
+            cursor: pointer;
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        .img-gallery img:hover {
+            opacity: 0.7;
+            transform: scale(1.1);
+        }
+        .img-gallery .hover-text {
+            position: absolute;
+            top: 0;
+            bottom: 5%;
+            left: 0;
+            right: 0;
+            transform: translateY(20px);
+            color: black;
+            font-size: 20px;
+            opacity: 0;
+            transition: opacity 0.5s;
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .img-gallery div:hover .hover-text {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .full-img {
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            z-index: 100;
+            padding: 20px;
+        }
+        .full-img img {
+            width: 50%;
+            max-width: 500px;
+        }
+        .full-img .close-btn {
+            position: absolute;
+            top: 20%;
+            right: 5%;
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
+        }
+        .description {
+            width: 50%;
+            max-width: 500px;
+            margin-left: 20px;
+            color: white;
+        }
+        .customization {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .customization label {
+            font-size: 18px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .customization select,
+        .customization input[type="color"] {
+            padding: 8px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <img src="../Image/logo.PNG" style="width: 85px; height: 85px; margin-left: 1%" alt="logo" >
+            <ul style="margin-left: 20%">
+                <li><a href="home.html" class="menu">Home</a></li>
+                <li><a href="gallery.html" class="menu">Gallery</a></li>
+                <li><a href="services.html" class="menu">Services</a></li>
+                <li><a href="content.html" class="menu">Content</a></li>
+                <li><a href="sitemap.html" class="menu">SiteMap</a></li>
+                <li><a href="aboutus.html" class="menu">AboutUs</a></li>
+                <li><a href="feedback.html" class="menu">Feedback</a></li>
+            </ul>
+            <div style="margin-left: 12%">
+                <ul>
+                    <li><a href="shop.html" class="menu">&#128722;</a></li>
+                    <li><a href="Wishlist.html" class="menu"><img src="../Image/wishlist.jpeg" style="width: 20px; height: 20px" alt="wishlist"></a></li>
+                    <li><a href="Profile.html" class="menu"><img src="../Image/profileicone.jpg" style="width: 20px; height: 20px" alt="profile"></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <h1>Photo Gallery</h1>
+    <div class="full-img" id="fullImgBox">
+        <img src="" alt="Expanded Image" id="fullImg">
+        <div class="close-btn" onclick="closeFullImg()">&#x2716;</div>
+        <div class="description">
+            <div id="imgDescription"></div>
+        </div>
+    </div>
+    <div class="img-gallery">
+        <div>
+            <img src="../Image/img_1.jpeg" alt="image 1" onclick="OpenFullImg(this.src, 'The image depicts Sigiriya, also known as Lion Rock, a historic and archaeological site located in the Central Province of Sri Lanka. This ancient rock fortress is renowned for its unique location atop a massive rock column that rises nearly 200 meters (660 feet) above the surrounding jungle.Sigiriya features the ruins of an ancient palace complex, built during the reign of King Kasyapa (477-495 AD). The top of the rock was used as a royal citadel for several years, and the site has been recognized as a UNESCO World Heritage Site since 1982, under the criteria of “cultura.\cultural and historical significance.')">
+            <div class="hover-text">Sigiriya</div>
+        </div>
+        <div>
+            <img src="../Image/img_2.jpeg" alt="image 2" onclick="OpenFullImg(this.src, 'This image showcases the Ruwanwelisaya stupa, a significant Buddhist monument located in Anuradhapura, Sri Lanka. The stupa\'s large, white dome is a striking feature against the clear blue sky. At the base, there is a red band encircling the stupa. People, including monks and visitors, are seen walking around the stupa, engaging in various activities. The site is a popular pilgrimage destination, reflecting the importance of Buddhism in Sri Lankan culture and history. The open area surrounding the stupa is paved, providing ample space for visitors to move around and offer their prayers.')">
+            <div class="hover-text">Ruwanweliseya Stupa</div>
+        </div>
+        <div>
+            <img src="../Image/img_3.jpeg" alt="image 3" onclick="OpenFullImg(this.src, 'Galle Fort, located in the city of Galle on Sri Lanka\'s southwest coast, is a historic fortification built by the Portuguese in 1588 and later expanded by the Dutch in the 17th century. This UNESCO World Heritage site features thick stone walls and ramparts offering panoramic views of the Indian Ocean. Inside, the fort\'s cobblestone streets are lined with colonial-era buildings, including churches, museums, and mansions that showcase a blend of European and South Asian architectural styles. Today, Galle Fort is a vibrant community with boutiques, cafes, and art galleries, making it a lively cultural hub. Its rich history, combined with its picturesque setting and lively atmosphere, makes it a must-visit destination in Sri Lanka.')">
+            <div class="hover-text">Galle Fort</div>
+        </div>
+        <div>
+            <img src="../Image/img_4.jpeg" alt="image 4" onclick="OpenFullImg(this.src, 'Jaffna, located in the northernmost region of Sri Lanka, is a city rich in history and cultural diversity, known for its distinct Tamil heritage. The city is home to numerous historical sites, including the Jaffna Fort, built by the Portuguese in 1618, and the Nallur Kandaswamy Kovil, a significant Hindu temple renowned for its grand festivals. Jaffna\'s unique blend of colonial architecture, traditional Tamil culture, and lush landscapes offers a fascinating experience for visitors. The city\'s vibrant markets, delicious cuisine, and warm, welcoming community add to its charm, making Jaffna a captivating destination for those looking to explore Sri Lanka\'s diverse cultural tapestry.')">
+            <div class="hover-text">Jaffna</div>
+        </div>
+        <div>
+            <img src="../Image/img_5.jpeg" alt="image 5" onclick="OpenFullImg(this.src, 'The Nuwara Eliya Post Office, situated in the heart of Nuwara Eliya in Sri Lanka, is a charming colonial-era building that stands as a testament to the region\'s British colonial heritage. Built in 1894, this iconic post office features Tudor-style architecture, complete with red brick walls, gabled roofs, and a distinctive clock tower. Surrounded by the lush greenery and cool climate of the hill country, the post office is not only a functional postal service center but also a popular tourist attraction. Its picturesque setting and historical significance make it a must-visit landmark for those exploring the scenic town of Nuwara Eliya.')">
+            <div class="hover-text">Nuwaraeliya Postoffice</div>
+        </div>
+        <div>
+            <img src="../Image/img_6.jpeg" alt="image 6" onclick="OpenFullImg(this.src, 'The Red Church in Sri Lanka, officially known as the St. Anthony\'s Shrine in Kochchikade, Colombo, stands as an iconic testament to faith and resilience. Its vibrant crimson facade, adorned with intricate architectural details, draws visitors and devotees alike to its doors. Built in the late 19th century, the church has weathered periods of colonial rule and turbulent times, emerging as a beacon of spiritual solace and community strength. Today, it remains a cherished landmark, welcoming worshippers from diverse backgrounds and serving as a poignant reminder of Sri Lanka\'s rich religious heritage and enduring unity.')">
+            <div class="hover-text">Red church</div>
+        </div>
+        <div>
+            <img src="../Image/img_7.jpeg" alt="image 7" onclick="OpenFullImg(this.src, 'The Koneswaram Kovil, also known as the Temple of a Thousand Pillars, is a significant Hindu temple complex in Trincomalee, Sri Lanka.  Located atop a scenic promontory overlooking the ocean, the complex is a classical-medieval marvel and one of the five holiest Shiva shrines (Pancha Ishwarams) in the country. Though parts were destroyed by European colonizers, the remaining architecture and its dramatic location make it a popular pilgrimage site and a must-see for any visitor to Trincomalee.')">
+            <div class="hover-text">Koneshwaram Kovil</div>
+        </div>
+        <div>
+            <img src="../Image/img_8.jpeg" alt="image 8" onclick="OpenFullImg(this.src, 'Sri Lanka\'s Temple of the Sacred Tooth Relic, also known as Sri Dalada Maligawa, is a UNESCO-protected Buddhist shrine in Kandy. This magnificent complex houses the country\'s most important relic, a tooth of the Buddha, and is believed to bring rightful rule to whoever possesses it. Vibrant with daily rituals and stunning Kandyan architecture, the temple is a pilgrimage site for Buddhists and a must-see for any visitor to Sri Lanka.')">
+            <div class="hover-text">Temple of Tooth Relic</div>
+        </div>
+        <div class="customization">
+            <label for="bgColor">Background Color:</label>
+            <input type="color" id="bgColor" onchange="changeBgColor(this.value)">
+            <label for="fontFamily">  Font Family:</label>
+            <select id="fontFamily" onchange="changeFontFamily(this.value)">
+                <option value="Roboto, sans-serif">Roboto</option>
+                <option value="Lato, sans-serif">Lato</option>
+                <option value="Arial, sans-serif">Arial</option>
+                <option value="Verdana, sans-serif">Verdana</option>
+            </select>
+        </div>
+    </div>
+    <footer>
+        <div class="social-media">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <div style="margin-left: 30%">
+            <p>&copy; 2024 TourUP. All rights reserved.</p>
+            <img src="../Image/logo.PNG" style="width: 100px; height: 100px" alt="logo">
+        </div>
+        <div style="margin-left: 28%">
+            <p><b>Contact Us</b></p>
+            <p>Tel: +94775642345</p>
+            <p>✉️:TourUp@email.com</p>
+            <p> <a href="Page_Editor_Dilmi.html">Visit Editor's Page</a></p>
+        </div>
+    </footer>
+    <script>
+        function OpenFullImg(src, description) {
+            const fullImgBox = document.getElementById('fullImgBox');
+            const fullImg = document.getElementById('fullImg');
+            const imgDescription = document.getElementById('imgDescription');
+            fullImgBox.style.display = 'flex';
+            fullImg.src = src;
+            imgDescription.textContent = description;
+        }
+        function closeFullImg() {
+            const fullImgBox = document.getElementById('fullImgBox');
+            fullImgBox.style.display = 'none';
+        }
+        function changeBgColor(color) {
+            document.body.style.backgroundColor = color;
+        }
+        function changeFontFamily(font) {
+            document.body.style.fontFamily = font;
+        }
+    </script>
+</body>
+</html>
+

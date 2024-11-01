@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✈️TourUP.com/Feedback</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&display=swap">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/feedback.css">
+</head>
+
+<body>
+<div class="navbar">
+    <img src="../Image/logo.PNG" style="width: 85px; height: 85px; margin-left: 1%" alt="logo">
+    <ul style="margin-left: 20%">
+        <li><a href="Home.html" class="menu">Home</a></li>
+            <li><a href="gallery.html" class="menu">Gallery</a></li>
+            <li><a href="store.html" class="menu">Services</a></li>
+            <li><a href="content.html" class="menu">Content</a></li>
+            <li><a href="sitemap.html" class="menu">SiteMap</a></li>
+            <li><a href="index.html" class="menu">AboutUs</a></li>
+            <li><a href="feedbak.html" class="menu">Feedback</a></li>
+    </ul>
+    <div style="margin-left: 12%">
+        <ul>
+            <li><a href="Home.html" class="menu">&#128722;</a></li>
+            <li><a href="" class="menu"><img src="../Image/wishlist.jpeg" style="width: 20px; height: 20px" alt="wishlist"></a></li>
+            <li><a href="" class="menu"><img src="../Image/profileicone.jpg" style="width: 20px; height: 20px" alt="profile"></a></li>
+        </ul>
+    </div>
+</div>
+<Br><br><Br><br>
+<header class="container">
+    <h1>Feedback Form</h1>
+    <p>We value your feedback to improve our services</p>
+</header>
+
+<div class="container">
+    <form id="feedbackForm">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <span class="error" id="nameError"></span>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <span class="error" id="emailError"></span>
+        </div>
+        <div class="form-group">
+            <label>Was the website information easy to use and navigate?</label>
+            <br>
+            <div class="rb_align">
+                <label>Yes</label>
+                <input type="radio" id="easyYes" name="easyUse" value="Yes" required>
+            </div>
+            <br>
+            <div class="rb_align">
+                <label>No</label>
+                <input type="radio" id="easyNo" name="easyUse" value="No">
+            </div>
+            <div class="form-group">
+                <label for="navigationComments">If No, feel free to suggest the areas we should improve:</label>
+                <textarea id="navigationComments" name="navigationComments"></textarea>
+                <span class="error" id="navigationCommentsError"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Did you find the content on our website helpful for planning your trip?</label>
+            <br>
+            <div class="rb_align">
+                <label>Yes</label>
+                <input type="radio" id="contentYes" name="contentHelpful" value="Yes" required>
+            </div>
+            <br>
+            <div class="rb_align">
+                <label>No</label>
+                <input type="radio" id="contentNo" name="contentHelpful" value="No">
+            </div>
+            <div id="contentHelpfulDetails" style="display:none;">
+                <label for="whyNotHelpful">If no, please specify why:</label>
+                <textarea id="whyNotHelpful" name="whyNotHelpful"></textarea>
+            </div>
+            <span class="error" id="contentHelpfulError"></span>
+        </div>
+        <div class="form-group">
+            <label for="siteDesign">How visually appealing is our website design to you?</label>
+            <select id="siteDesign" name="siteDesign" required>
+                <option value="">Select an option</option>
+                <option value="Excellent">Excellent</option>
+                <option value="Good">Good</option>
+                <option value="Average">Average</option>
+                <option value="Poor">Poor</option>
+                <option value="Terrible">Terrible</option>
+            </select>
+            <span class="error" id="siteDesignError"></span>
+        </div>
+        <div class="form-group">
+            <label>Do you recommend our service?</label>
+            <br>
+            <div class="rb_align">
+                <label>Yes</label>
+                <input type="radio" id="recommendYes" name="recommendService" value="Yes" required>
+            </div>
+            <br>
+            <div class="rb_align">
+                <label>No</label>
+                <input type="radio" id="recommendNo" name="recommendService" value="No">
+            </div>
+            <div id="recommendServiceDetails" style="display:none;">
+                <label for="whyNotRecommend">If no, please specify why:</label>
+                <textarea id="whyNotRecommend" name="whyNotRecommend"></textarea>
+            </div>
+            <span class="error" id="recommendServiceError"></span>
+        </div>
+        <div class="form-group">
+            <label for="customerService">How would you rate our customer service?</label>
+            <select id="customerService" name="customerService" required>
+                <option value="">Select an option</option>
+                <option value="Excellent">Excellent</option>
+                <option value="Good">Good</option>
+                <option value="Average">Average</option>
+                <option value="Poor">Poor</option>
+                <option value="Terrible">Terrible</option>
+            </select>
+            <span class="error" id="customerServiceError"></span>
+        </div>
+        <div class="form-group">
+            <label for="additionalSuggestions">Any additional comments or suggestions?</label>
+            <textarea id="additionalSuggestions" name="additionalSuggestions"></textarea>
+            <span class="error" id="commentsError"></span>
+        </div>
+        <div class="form-actions">
+            <div class="button-group">
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+        <div class="confirmation-message" id="confirmationMessage">Thank you for your feedback!</div>
+    </form>
+    <div class="preview-section" id="previewSection">
+        <h3>Preview of Your Feedback</h3>
+        <p><strong>Name:</strong> <span id="previewName"></span></p>
+        <p><strong>Email:</strong> <span id="previewEmail"></span></p>
+        <p><strong>Was the website information easy to use and navigate?</strong> <span id="previewEasyUse"></span></p>
+        <p><strong>Reason:</strong> <span id="previewNavigationComments"></span></p>
+        <p><strong>Did you find the content on our website helpful for planning your trip?</strong> <span id="previewContentHelpful"></span></p>
+        <p><strong>Reason:</strong> <span id="previewWhyNotHelpful"></span></p>
+        <p><strong>How visually appealing is our website design to you?</strong> <span id="previewSiteDesign"></span></p>
+        <p><strong>Do you recommend our service?</strong> <span id="previewRecommendService"></span></p>
+        <p><strong>Reason:</strong> <span id="previewWhyNotRecommend"></span></p>
+        <p><strong>How would you rate our customer service?</strong> <span id="previewCustomerService"></span></p>
+        <p><strong>Any additional comments or suggestions?</strong> <span id="previewAdditionalSuggestions"></span></p>
+    </div>
+</div>
+
+<script src="../JS/feedback.js"></script>
+
+<footer>
+    <div class="social-media">
+        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+    <div style="margin-left: 30%">
+        <p>&copy; 2024 TourUP. All rights reserved.</p>
+        <img src="../Image/logo.PNG" style="width: 100px; height: 100px" alt="logo">
+    </div>
+    <div style="margin-left: 28%">
+        <p><b>Contact Us</b></p>
+        <p>Tel: +94775642345</p>
+        <p>✉️:TourUp@email.com</p>
+        <p><a href="Editor_page_Siluna.html">Visit Editor's Page</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
